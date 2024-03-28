@@ -31,15 +31,14 @@ jobs:
       - name: Build and push Docker image
         uses: strangelove-ventures/heighliner-build-action@v1.0.0
         with:
-          git-ref: ${{ steps.branch-name.outputs.current_branch }}
           platform: linux/arm64,linux/amd64
-          # heighliner chains.yml
+          git-ref: ${{ github.ref_name }}
+          registry: docker.io/ajeetgoyal
           chain: persistencecore
-          github-organization: persistenceOne
+          tag: ${{ github.ref_name }}
+          github-organization: ajeetgoyal
           github-repo: persistenceCore
           dockerfile: cosmos
-          registry: docker.io/ajeetgoyal
-          go-version: 1.21
           build-target: make install
           binaries: |
             - /go/bin/persistenceCore
