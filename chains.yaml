@@ -1,10 +1,12 @@
 # This file is used to create docker images using the heighliner binary.
 # see: https://github.com/strangelove-ventures/heighliner
 
-- name: persistence
+- name: persistencecore
   github-organization: persistenceOne
   github-repo: persistenceCore
   dockerfile: cosmos
+  registry: docker.io/ajeetgoyal
+  go-version: 1.21
   build-target: make install
   binaries:
     - /go/bin/persistenceCore
