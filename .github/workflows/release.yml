@@ -28,7 +28,6 @@ jobs:
         uses: strangelove-ventures/heighliner-build-action@v1.0.0
         with:
           platform: linux/arm64,linux/amd64
-          
           # heighliner chains.yml
           name: persistencecore
           github-organization: persistenceOne
@@ -37,8 +36,8 @@ jobs:
           registry: docker.io/ajeetgoyal
           go-version: 1.21
           build-target: make install
-          binaries:
+          binaries: |
             - /go/bin/persistenceCore
-          build-env:
+          build-env: |
             - LEDGER_ENABLED=false
             - BUILD_TAGS=muslc
